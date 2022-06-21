@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+    <h1>Choose file and display its Name</h1>
+    <!-- <input type='file' id='inputTypeFile' multiple> -->
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('fileInputControl').click()">choose folder</button>
+  <input  name="input" type="file" style="display:none" id="fileInputControl" webkitdirectory="true" multiple />
+    <div id="showFilessList"></div>
+
+    <script>
+        fileInputControl = document.getElementById('fileInputControl')
+        showFilessList = document.getElementById('showFilessList')
+        conputed = ''
+      fileInputControl.addEventListener('change', function() {
+            if ((this.files.item(i).size * 0.000001).toFixed(2) == 0.00) {
+                computed = this.files.item(i).size + " KB"
+            } else {
+
+                computed = (this.files.item(i).size * 0.000001).toFixed(2) + " MB"
+            }
+
+            if (this.files.length > 0) {
+                if (this.files.length > 0) {
+                    for (var i = 0; i < this.files.length; i++) {
+                        showFilessList.innerHTML += "<p class='addedFile'><b>File Name </b>" + this.files.item(i).name + "  <b>Size </b> " + computed
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
